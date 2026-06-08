@@ -1,0 +1,21 @@
+CREATE TABLE users(
+    id UUID PRIMARY KEY,
+    email TEXT UNIQUE,
+    password TEXT
+);
+
+CREATE TABLE datasets(
+    id UUID PRIMARY KEY,
+    user_id UUID,
+    name TEXT,
+    path TEXT,
+    created_at TIMESTAMP
+);
+
+CREATE TABLE experiments(
+    id UUID PRIMARY KEY,
+    dataset_id UUID,
+    model_name TEXT,
+    accuracy FLOAT,
+    created_at TIMESTAMP
+);
